@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cart · Acme Supply Co.</title>
+    <link rel="stylesheet" href="../styles.css?v=__BUILD__" />
+  </head>
+  <body>
+    <header class="top">
+      <a class="brand" href="../">Acme Supply Co.</a>
+      <a class="cart-link" href="./" aria-current="page">Cart <span id="cart-count" class="count" hidden>0</span></a>
+    </header>
+
+    <main class="wrap">
+      <h1>Your cart</h1>
+      <p id="placed" class="placed" role="status" hidden>Thanks! Your order is placed. (This is a demo store, so nothing ships.)</p>
+
+      <div id="empty" class="empty" hidden>
+        <p>Your cart is empty.</p>
+        <a class="button" href="../">Keep shopping</a>
+      </div>
+
+      <div id="summary" class="cart" hidden>
+        <ul id="lines" class="lines" aria-label="Items in your cart"></ul>
+
+        <aside class="totals">
+          <form id="promo-form" class="promo">
+            <label for="promo-code">Promo code</label>
+            <div class="promo-row">
+              <input id="promo-code" name="code" autocomplete="off" spellcheck="false" placeholder="Enter code" />
+              <button type="submit" class="button secondary">Apply</button>
+            </div>
+            <p id="promo-message" class="promo-message" role="status"></p>
+          </form>
+
+          <dl>
+            <div><dt>Subtotal</dt><dd id="subtotal">$0.00</dd></div>
+            <div id="discount-row" hidden><dt>Discount</dt><dd id="discount">−$0.00</dd></div>
+            <div class="grand"><dt>Total</dt><dd id="total">$0.00</dd></div>
+          </dl>
+          <button type="button" id="place-order" class="button wide">Place order</button>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="foot"><span>Acme Supply Co. · Demo store</span><span id="build"></span></footer>
+
+    <script type="module" src="../src/build.js?v=__BUILD__"></script>
+    <script type="module" src="../src/cart-page.js?v=__BUILD__"></script>
+  </body>
+</html>

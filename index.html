@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Acme Supply Co.</title>
+    <link rel="stylesheet" href="styles.css?v=__BUILD__" />
+  </head>
+  <body>
+    <header class="top">
+      <a class="brand" href="./">Acme Supply Co.</a>
+      <a class="cart-link" href="cart/">Cart <span id="cart-count" class="count" hidden>0</span></a>
+    </header>
+
+    <main class="wrap">
+      <section class="hero">
+        <p class="eyebrow">Spring sale</p>
+        <h1>Good things for the desk.</h1>
+        <p>Use code <strong>SPRING25</strong> for 25% off your order.</p>
+      </section>
+
+      <section id="products" class="products" aria-label="Products"></section>
+      <p id="toast" class="toast" role="status" hidden></p>
+    </main>
+
+    <footer class="foot"><span>Acme Supply Co. · Demo store</span><span id="build"></span></footer>
+
+    <script type="module" src="src/build.js?v=__BUILD__"></script>
+    <script type="module" src="src/shop-page.js?v=__BUILD__"></script>
+  </body>
+</html>

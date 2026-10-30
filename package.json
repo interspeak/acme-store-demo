@@ -1,0 +1,14 @@
+{
+  "name": "acme-store",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Acme Supply Co. storefront",
+  "type": "module",
+  "engines": {
+    "node": ">=20.11"
+  },
+  "scripts": {
+    "start": "node scripts/serve.js",
+    "test": "node --test"
+  }
+}
