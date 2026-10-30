@@ -1,12 +1,13 @@
 # Acme Supply Co.
 
-The storefront for Acme Supply Co.: a shop page, a cart and promo codes. Plain HTML, CSS and JavaScript modules, with no build step and no dependencies.
+The storefront for Acme Supply Co.: a shop page, a cart and promo codes. Plain HTML, CSS and JavaScript modules, with no dependencies.
 
 ## Run it
 
 ```bash
 npm start   # http://localhost:4173
 npm test
+npm run build   # the site, stamped with the commit, in _site/
 ```
 
 ## Layout
@@ -20,4 +21,4 @@ npm test
 
 ## Deploys
 
-Every push to `main` runs the tests and deploys to GitHub Pages (`.github/workflows/deploy.yml`). Pull requests run the tests. The footer shows the commit that's live.
+Cloudflare Workers Builds deploys every push to `main`: it runs `npm run build`, then `npx wrangler deploy`, which serves `_site/` as static assets (`wrangler.jsonc`). Pull requests run the tests on GitHub Actions. The footer shows the commit that's live.
