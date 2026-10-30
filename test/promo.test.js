@@ -8,7 +8,7 @@ const tote = { id: 'tote', priceCents: 2400 };
 const notebook = { id: 'notebook', priceCents: 1200 };
 
 test('codes ignore case and spaces', () => {
-  assert.equal(normalizeCode('  spring25 '), 'SPRING25');
+  assert.equal(normalizeCode('  fall27 '), 'FALL27');
   assert.equal(normalizeCode(undefined), '');
 });
 
@@ -18,8 +18,8 @@ test('counts items and adds up the subtotal', () => {
   assert.equal(subtotalCents(items), 6000);
 });
 
-test('SPRING25 takes 25% off a mug and a tote', () => {
-  const result = applyPromo([{ ...mug, quantity: 1 }, { ...tote, quantity: 1 }], 'SPRING25');
+test('FALL27 takes 25% off a mug and a tote', () => {
+  const result = applyPromo([{ ...mug, quantity: 1 }, { ...tote, quantity: 1 }], 'FALL27');
   assert.equal(result.ok, true);
   assert.equal(result.discountCents, 1050);
 });

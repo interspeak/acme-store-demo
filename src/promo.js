@@ -1,7 +1,7 @@
 // Promo codes and the rules for when they apply.
 
 export const PROMOS = {
-  SPRING25: { percentOff: 25, minItems: 1, label: 'Spring sale, 25% off' },
+  FALL27: { percentOff: 25, minItems: 1, label: 'Fall sale, 25% off' },
   WELCOME10: { percentOff: 10, minItems: 1, label: 'Welcome, 10% off' },
   BUNDLE15: { percentOff: 15, minItems: 3, label: 'Bundle, 15% off 3 or more items' },
 };
