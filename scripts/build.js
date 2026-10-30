@@ -7,12 +7,12 @@ const root = resolve(import.meta.dirname, '..');
 const out = join(root, '_site');
 
 function commit() {
-  const fromCi = process.env.WORKERS_CI_COMMIT_SHA ?? process.env.GITHUB_SHA;
-  if (fromCi) return fromCi.slice(0, 7);
   try {
-    return execSync('git rev-parse --short=7 HEAD', { cwd: root }).toString().trim();
+    return execSync('git rev-parse --short=7 HEAD', { cwd: root, stdio: ['ignore', 'pipe', 'ignore'] }).toString().trim();
   } catch {
-    return 'local';
+    // No git in the build: use the CI's commit, if it gave a real one.
+    const fromCi = process.env.WORKERS_CI_COMMIT_SHA ?? process.env.GITHUB_SHA ?? '';
+    return /^[0-9a-f]{7,40}$/i.test(fromCi) ? fromCi.slice(0, 7) : 'local';
   }
 }
 
