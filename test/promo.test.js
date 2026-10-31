@@ -36,6 +36,18 @@ test('BUNDLE15 takes 15% off four items', () => {
   assert.equal(result.discountCents, 900);
 });
 
+test('FALL27 applies to a single item', () => {
+  const result = applyPromo([{ ...mug, quantity: 1 }], 'FALL27');
+  assert.equal(result.ok, true);
+  assert.equal(result.discountCents, 450);
+});
+
+test('BUNDLE15 applies to exactly three items', () => {
+  const result = applyPromo([{ ...mug, quantity: 2 }, { ...notebook, quantity: 1 }], 'BUNDLE15');
+  assert.equal(result.ok, true);
+  assert.equal(result.discountCents, 720);
+});
+
 test('an unknown code is refused', () => {
   const result = applyPromo([{ ...mug, quantity: 1 }], 'FREESTUFF');
   assert.equal(result.ok, false);
