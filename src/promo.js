@@ -29,7 +29,7 @@ export function applyPromo(items, rawCode) {
   const promo = PROMOS[code];
   if (promo === undefined) return { ok: false, message: `${code} isn't a valid promo code.` };
 
-  if (itemCount(items) >= promo.minItems) {
+  if (itemCount(items) > promo.minItems) {
     const discountCents = Math.round((subtotalCents(items) * promo.percentOff) / 100);
     return { ok: true, code, label: promo.label, discountCents };
   }
