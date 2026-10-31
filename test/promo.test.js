@@ -45,3 +45,15 @@ test('an unknown code is refused', () => {
 test('an empty code asks for one', () => {
   assert.equal(applyPromo([{ ...mug, quantity: 1 }], '   ').ok, false);
 });
+
+test('FALL27 takes 25% off a single mug', () => {
+  const result = applyPromo([{ ...mug, quantity: 1 }], 'FALL27');
+  assert.equal(result.ok, true);
+  assert.equal(result.discountCents, 450);
+});
+
+test('BUNDLE15 takes 15% off exactly three items', () => {
+  const result = applyPromo([{ ...mug, quantity: 1 }, { ...tote, quantity: 1 }, { ...notebook, quantity: 1 }], 'BUNDLE15');
+  assert.equal(result.ok, true);
+  assert.equal(result.discountCents, 810);
+});
